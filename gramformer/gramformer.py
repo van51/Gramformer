@@ -1,11 +1,11 @@
 class Gramformer:
 
-  def __init__(self, models=1, use_gpu=False):
+  def __init__(self, models=1, use_gpu=False, errant_model='en'):
     from transformers import AutoTokenizer
     from transformers import AutoModelForSeq2SeqLM
     #from lm_scorer.models.auto import AutoLMScorer as LMScorer
     import errant
-    self.annotator = errant.load('en')
+    self.annotator = errant.load(errant_model)
     
     if use_gpu:
         device= "cuda:0"
